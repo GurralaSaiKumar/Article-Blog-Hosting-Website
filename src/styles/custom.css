@@ -1,0 +1,207 @@
+/* Chronicle Modern Blog & Article Hosting Platform Styles */
+
+:root {
+  --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #ec4899 100%);
+  --accent-cyan-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  --card-shadow-hover: 0 20px 30px -10px rgba(79, 70, 229, 0.15), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(140, 150, 175, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.6);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.gradient-text-cyan {
+  background: var(--accent-cyan-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Glassmorphism effects */
+.glass-header {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  transition: all 0.25s ease;
+}
+
+[data-mantine-color-scheme="dark"] .glass-header {
+  background: rgba(20, 21, 23, 0.85);
+  border-bottom: 1px solid rgba(55, 58, 64, 0.6);
+}
+
+/* Card hover lift */
+.hover-lift {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+/* Image zoom inside card on hover */
+.zoom-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.zoom-image {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.zoom-container:hover .zoom-image {
+  transform: scale(1.05);
+}
+
+/* Subtle glow effect behind hero */
+.hero-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.08) 50%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Reading Progress Bar pinned at top */
+.reading-progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 9999;
+  background: transparent;
+}
+
+.reading-progress-fill {
+  height: 100%;
+  background: var(--accent-gradient);
+  transition: width 0.08s ease-out;
+}
+
+/* Article rich typography formatting */
+.article-markdown-body {
+  font-size: 1.125rem;
+  line-height: 1.85;
+  color: inherit;
+}
+
+.article-markdown-body h1,
+.article-markdown-body h2,
+.article-markdown-body h3 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 2rem;
+  margin-bottom: 0.85rem;
+}
+
+.article-markdown-body p {
+  margin-bottom: 1.4rem;
+}
+
+.article-markdown-body blockquote {
+  border-left: 4px solid #6366f1;
+  padding-left: 1.25rem;
+  margin: 1.75rem 0;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.article-markdown-body pre {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  padding: 1.25rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  margin: 1.5rem 0;
+}
+
+.article-markdown-body code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+  border-radius: 6px;
+  background: rgba(99, 102, 241, 0.1);
+  color: #4f46e5;
+}
+
+[data-mantine-color-scheme="dark"] .article-markdown-body code {
+  background: rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+}
+
+/* Interactive reaction pulse */
+@keyframes heart-burst {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.35);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-burst {
+  animation: heart-burst 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Tag pill badge hover */
+.tag-pill {
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  cursor: pointer;
+}
+
+.tag-pill:hover {
+  transform: translateY(-1px);
+}

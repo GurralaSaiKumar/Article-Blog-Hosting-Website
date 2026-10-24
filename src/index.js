@@ -4,6 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+if (!localStorage.getItem('chronicle-dark-mode-initialized')) {
+  localStorage.setItem('mantine-color-scheme-value', 'dark');
+  localStorage.setItem('chronicle-dark-mode-initialized', 'true');
+}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
