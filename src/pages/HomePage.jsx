@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { Link } from "react-router-dom";
 import {
   Container,
   Title,
@@ -7,9 +6,7 @@ import {
   Group,
   Button,
   SimpleGrid,
-  Stack,
-  Badge,
-  useMantineColorScheme
+  Stack
 } from "@mantine/core";
 import {
   IconArrowRight,

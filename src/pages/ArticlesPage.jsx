@@ -48,6 +48,7 @@ export default function ArticlesPage() {
     if (urlCat && urlCat !== selectedCategory) {
       setSelectedCategory(urlCat);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
   useEffect(() => {
